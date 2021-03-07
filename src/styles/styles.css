@@ -1,0 +1,210 @@
+html,
+body,
+main {
+  box-sizing: border-box;
+  height: 100%;
+}
+
+h1 {
+  text-align: center;
+  display: block;
+}
+/* Board */
+
+.boardContainer {
+  border: solid;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 350px;
+  width: 500px;
+}
+
+.boardText {
+  padding: 10px;
+}
+/* Exams  */
+
+.buttonClose {
+  align-self: flex-end;
+}
+
+.NewQuestionMenuContainer {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+.containerAnswer {
+  display: flex;
+  margin: 20px;
+}
+
+.containerQuestion {
+  border: solid;
+  border-radius: 15%;
+  margin-bottom: 40px;
+  width: 500px;
+  height: auto;
+  padding: 15px;
+}
+
+.containerNewQuestion {
+  display: flex;
+  flex-direction: column;
+  border: solid;
+  border-radius: 10%;
+  margin-bottom: 40px;
+  width: 500px;
+  height: auto;
+  padding: 15px;
+}
+
+#question {
+  margin: 20px;
+}
+
+.containerExams {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  height: 150vh;
+  width: 100%;
+  background-color: rgb(211, 211, 211);
+}
+/* Login */
+
+.buttonLogin {
+  padding: 10px;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 100px;
+  margin: 15px 10px;
+}
+
+.containerLoginButtons {
+  display: flex;
+  flex: 1;
+}
+.containerPaginaLogin {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.containerLogin {
+  border: solid;
+  border-radius: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 500px;
+  width: 500px;
+}
+
+.loginMain {
+  background-color: rgba(158, 216, 255, 0.4);
+  opacity: 1;
+}
+
+.loginInput {
+  height: 40px;
+  width: 200px;
+  margin: 20px;
+}
+
+/* Home */
+
+.backgroundImage {
+  background-image: url("https://workingnation.com/wp-content/uploads/2019/10/Hands-raised-graphic-2.jpg");
+  background-size: 100vh;
+}
+
+.titulo {
+  font-family: sans-serif;
+  font-size: 150px;
+}
+
+.kahootTitle {
+  justify-content: center;
+  align-items: center;
+}
+
+.containerList {
+  flex-direction: column;
+  display: flex;
+  align-items: center;
+}
+
+.boardsContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Menu */
+.Menu {
+  background-color: rgba(158, 216, 255, 0.4);
+}
+
+.buttonMenu {
+  padding: 10px;
+  background-color: antiquewhite;
+  height: 50px;
+  width: 100px;
+  margin: 15px 10px;
+}
+
+.buttonMenuUserArea {
+  background-color: rgb(250, 145, 8);
+  height: 40px;
+  width: 80px;
+  margin: 20px 10px;
+}
+
+.UserAreaMenu {
+  margin-left: auto;
+  align-self: flex-end;
+  justify-content: end;
+  align-items: flex-end;
+}
+
+.containerPaginaPrincipal {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  height: 100vh;
+  width: 100%;
+  background-color: rgb(211, 211, 211);
+}
+
+/* Geral */
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 100%;
+  width: 100%;
+}
+
+.closeButton {
+  background: url(../icons/close.jpg) no-repeat;
+  align-self: flex-end;
+  background-size: cover;
+  float: right;
+  width: 40px;
+  height: 40px;
+}
+
+/* Fase de Testes */
+
+.backgroundTeste {
+  border: solid;
+  background-color: whitesmoke;
+  opacity: 1.5;
+}
