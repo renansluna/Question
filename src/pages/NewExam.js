@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import '../styles/styles.css';
 import { NewQuestion } from '../components/NewQuestion';
 
@@ -6,9 +6,10 @@ export const NewExam = (props) => {
 
     const [arrayQuestion, setArrayQuestion] = useState([]);
 
-    const handleRemoveQuestion = (idToRemove, aQuestion) => {
-        let aQuestionFiltered = aQuestion.filter((value, index) => value.props.id !== idToRemove);
-
+    const handleRemoveQuestion = (idToRemove) => {
+        
+        let aQuestionFiltered = arrayQuestion.filter((value, index) => value.idQuestion !== idToRemove);
+        
         setArrayQuestion(() => {
             return aQuestionFiltered
         });
@@ -16,10 +17,17 @@ export const NewExam = (props) => {
 
     const handleNewQuestion = (event) => {
         event.preventDefault();
-        let id = arrayQuestion.length;
+
+        let obj = { question: 'Empty',
+                    idQuestion: arrayQuestion.length,
+                    answer1: 'answer',
+                    answer2: 'answer',
+                    answer3: 'answer',
+                    answer4: 'answer'         
+        };
 
         setArrayQuestion((prev) => {
-            return [...prev, <NewQuestion arrayQuestion={arrayQuestion} id={id} key={id} removeQuestion={handleRemoveQuestion} />];
+            return [...prev, obj];
         });
     };
 
@@ -32,7 +40,7 @@ export const NewExam = (props) => {
             <div class="containerExams">
                 <h1>New Exam</h1>
                 {
-                    arrayQuestion
+                    arrayQuestion.map((question) => <NewQuestion id={question.idQuestion} key={question.idQuestion} removeQuestion={handleRemoveQuestion} />)
                 }
             </div>
         </main>

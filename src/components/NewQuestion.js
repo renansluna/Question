@@ -1,19 +1,12 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import '../styles/styles.css'
 
 
 export const NewQuestion = (props) => {
-    const [aQuestion, setAQuestion] = useState([]);
-
-    useEffect(() => {
-        setAQuestion(()=> {
-            return props.arrayQuestion
-        });
-    }, [aQuestion]);
 
     return (
         <div key={props.id} id={props.id} class="containerNewQuestion">
-            <button id={props.id} class="closeButton" onClick={() => props.removeQuestion(props.id, aQuestion)}/>
+            <button id={props.id} class="closeButton" onClick={() => props.removeQuestion(props.id)}/>
             <label>Question {props.id}</label> 
             <textarea id="question"/>
                     

@@ -7,9 +7,13 @@ export const NewQuestionContainer = (props) => {
         setAQuestion(()=> {
             return props.arrayQuestion
         });
-    }, [aQuestion]);
+    }, []);
+
+    const handleRemoveQuestion = (idToRemove, aQuestion) => {
+        props.removeQuestion(idToRemove, aQuestion);
+    };
 
     return (
-        <NewQuestion arrayQuestion={props.arrayQuestion} id={props.id} key={props.id} removeQuestion={props.removeQuestion}/>
+        <NewQuestion arrayQuestion={props.aQuestion} id={props.id} key={props.id} removeQuestion={props.handleRemoveQuestion}/>
     );
 }
