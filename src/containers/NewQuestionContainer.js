@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
-
+import React, { useState } from 'react';
+import { NewQuestion } from '../components/NewQuestion';
 export const NewQuestionContainer = (props) => {
-    const [aQuestion, setAQuestion] = useState([]);
 
-    useEffect(() => {
-        setAQuestion(()=> {
-            return props.arrayQuestion
-        });
-    }, []);
+    const [arrayQuestion, setArrayQuestion] = useState([{ 
+        question: 'Empty',
+        answer1: 'answer',
+        answer2: 'answer',
+        answer3: 'answer',
+        answer4: 'answer'         
+    }]);
 
-    const handleRemoveQuestion = (idToRemove, aQuestion) => {
-        props.removeQuestion(idToRemove, aQuestion);
-    };
+
 
     return (
-        <NewQuestion arrayQuestion={props.aQuestion} id={props.id} key={props.id} removeQuestion={props.handleRemoveQuestion}/>
+        <NewQuestion 
+            objeto={props.objeto}
+            questionKey={props.questionKey}
+            removeQuestion={props.removeQuestion} 
+            onChangeText={props.onChangeText}
+            onRemoveQuestion={props.onRemoveQuestion}/>
     );
 }

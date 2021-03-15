@@ -5,33 +5,49 @@ import '../styles/styles.css'
 export const NewQuestion = (props) => {
 
     return (
-        <div key={props.id} id={props.id} class="containerNewQuestion">
-            <button id={props.id} class="closeButton" onClick={() => props.removeQuestion(props.id)}/>
-            <label>Question {props.id}</label> 
-            <textarea id="question"/>
+        <div key={props.questionKey} id={props.questionKey} class="containerNewQuestion">
+            <button id={props.questionKey} class="closeButton" onClick={() => props.onRemoveQuestion(props.questionKey)}/>
+            <label>Question </label> 
+            <textarea id="questionTitle" onChange={(event) => props.onChangeText(event, props.questionKey)}/>
                     
-            <label>Answer 1</label> 
+            <label>Option 1</label> 
             <div>
-                <input type="text" placeholder="Write your answer"/>
-                <input type="radio" name="answer"/>
+                <input 
+                    type="text" 
+                    id="option1"
+                    placeholder="Write your option" 
+                    onChange={(event) => props.onChangeText(event, props.questionKey)}/>
+                <input type="radio" name="option1" />
             </div>
 
-            <label>Answer 2</label> 
+            <label>Option 2</label> 
             <div>
-                <input type="text" placeholder="Write your answer"/>
-                <input type="radio" name="answer"/>
+                <input 
+                    type="text" 
+                    id="option2"
+                    placeholder="Write your option" 
+                    onChange={(event) => props.onChangeText(event, props.questionKey)}/>
+                <input type="radio" name="option2"/>
             </div>
 
-            <label>Answer 3</label> 
+            <label>Option 3</label> 
             <div>
-                <input type="text" placeholder="Write your answer"/>
-                <input type="radio" name="answer"/>
+                <input 
+                    type="text" 
+                    id="option3"
+                    placeholder="Write your option" 
+                    onChange={(event) => props.onChangeText(event, props.questionKey)}/>
+                <input type="radio" name="option3"/>
             </div>
 
-            <label>Answer 4</label> 
+            <label>Option 4</label> 
             <div>
-                <input type="text" placeholder="Write your answer"/>
-                <input type="radio" name="answer"/>
+                <input 
+                    type="text" 
+                    id="option4"
+                    placeholder="Write your option" 
+                    onChange={(event) => props.onChangeText(event, props.questionKey)}/>
+                <input type="radio" name="option4"/>
             </div>
         </div>
     );

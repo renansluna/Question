@@ -1,46 +1,72 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import '../styles/styles.css';
-import { NewQuestion } from '../components/NewQuestion';
+import { NewQuestionContainer } from '../containers/NewQuestionContainer';
+const { uuid } = require('uuidv4');
 
 export const NewExam = (props) => {
 
-    const [arrayQuestion, setArrayQuestion] = useState([]);
+    const [question, setQuestion] = useState({
+        [uuid()]:    
+        {
+            questionTitle: 'Empty',
+            option1: 'answer',
+            option2: 'answer',
+            option3: 'answer',
+            option4: 'answer'
+        }  
+    });
 
-    const handleRemoveQuestion = (idToRemove) => {
-        
-        let aQuestionFiltered = arrayQuestion.filter((value, index) => value.idQuestion !== idToRemove);
-        
-        setArrayQuestion(() => {
-            return aQuestionFiltered
-        });
+    const handleRemoveQuestion = (keyToRemove) => {
+        let newMap ={...question};
+        delete newMap[keyToRemove];
+
+        setQuestion(newMap);
     };
 
     const handleNewQuestion = (event) => {
         event.preventDefault();
-
-        let obj = { question: 'Empty',
-                    idQuestion: arrayQuestion.length,
-                    answer1: 'answer',
-                    answer2: 'answer',
-                    answer3: 'answer',
-                    answer4: 'answer'         
+        let obj = { 
+                questionTitle: 'Empty',
+                option1: 'answer',
+                option2: 'answer',
+                option3: 'answer',
+                option4: 'answer'
         };
+        
+        setQuestion((prev) => {
+            return  {
+                ...prev,
+                [uuid()]: obj
+            }
+        });
+    };
 
-        setArrayQuestion((prev) => {
-            return [...prev, obj];
+    const handleChangeText = ({ target }, key) => {
+        let objetoQuestion = {...question[key]}
+        objetoQuestion[target.id] = target.value;
+
+        setQuestion((prev) => {
+            return  {
+                ...prev,
+                [key]: objetoQuestion
+            }
         });
     };
 
     return (
         <main>
             <div class="Menu NewQuestionMenuContainer" onClick={handleNewQuestion}>
-                <button class="buttonMenu">New Question</button>
+                <button id="newExamButton" class="buttonMenu">New Question</button>
                 <button class="buttonMenu">Save</button>
             </div>
             <div class="containerExams">
                 <h1>New Exam</h1>
                 {
-                    arrayQuestion.map((question) => <NewQuestion id={question.idQuestion} key={question.idQuestion} removeQuestion={handleRemoveQuestion} />)
+                    Object.keys(question).map(key => <NewQuestionContainer 
+                        questionKey={key} 
+                        objeto={question[key]}
+                        onRemoveQuestion={handleRemoveQuestion} 
+                        onChangeText={handleChangeText} />)
                 }
             </div>
         </main>
